@@ -4,26 +4,33 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get "/hosts" do
     hosts = Host.all
-    hosts.to_json
+    hosts.to_json(include: :homes)
   end
 
-  # post '/hosts/:id/homes' do 
-  #   home = home.create(
-  #     body: params[:body],
-  #     home: params[:home]
-  #   )
-  #   home.to_json
-  # end
+  post '/homes' do 
   
-  # patch '/hosts/:id/homes' do
+    home = Home.create(
+      title: params[:title],
+        location: params[:location],
+        category: params[:category],
+        description: params[:description],
+        price: params[:price],
+        guest_capacity: params[:guest_capacity],
+        host_id: params[:host_id]
+    )
+    
+    home.to_json
+  end
+ 
+  # patch '/homes/:id' do
   #   home= Home.find(params[:id])
-  #   home.update(
-  #     body: params[:body]
-  #   )
+  #   # home.update(
+  #   #   body: params[:body]
+  #   # )
   #   home.to_json
   # end
 
-  # delete "/hosts/:id/homes" do
+  # delete "/homes/:id" do
   #   home = Home.find(params[:id])
   #   home.destroy
   # end

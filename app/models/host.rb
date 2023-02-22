@@ -1,3 +1,3 @@
 class Host < ActiveRecord::Base 
-    has_many :homes
+    has_many :homes, dependent: :destroy
 end 
