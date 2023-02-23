@@ -8,17 +8,15 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/homes' do 
-  
     home = Home.create(
       title: params[:title],
-        location: params[:location],
-        category: params[:category],
-        description: params[:description],
-        price: params[:price],
-        guest_capacity: params[:guest_capacity],
-        host_id: params[:host_id]
-    )
-    
+      location: params[:location],
+      category: params[:category],
+      description: params[:description],
+      price: params[:price],
+      guest_capacity: params[:guest_capacity],
+      host_id: params[:host_id]
+    ) 
     home.to_json
   end
  
