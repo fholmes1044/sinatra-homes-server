@@ -7,10 +7,6 @@ class ApplicationController < Sinatra::Base
     hosts.to_json(include: :homes)
   end
 
-  # get "/hosts/:id" do
-  #   host = Host.find(params[:id])
-  #   host.to_json(include: :homes)
-  # end 
 
   post '/homes' do 
     home = Home.create(
