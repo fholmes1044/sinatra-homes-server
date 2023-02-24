@@ -7,10 +7,10 @@ class ApplicationController < Sinatra::Base
     hosts.to_json(include: :homes)
   end
 
-  get "/hosts/:id" do
-    host = Host.find(params[:id])
-    host.to_json(include: :homes)
-  end 
+  # get "/hosts/:id" do
+  #   host = Host.find(params[:id])
+  #   host.to_json(include: :homes)
+  # end 
 
   post '/homes' do 
     home = Home.create(
@@ -34,7 +34,6 @@ class ApplicationController < Sinatra::Base
   # end
 
   delete "/homes/:id" do
-    console.log(Home.find(params[:id]))
      home = Home.find(params[:id])
      home.destroy
   end
