@@ -23,12 +23,14 @@ class ApplicationController < Sinatra::Base
 
   post '/hosts' do
     host = Host.create(
-      fullname: params[:fullname],
+      full_name: params[:full_name],
       email: params[:email],
-      phone: params[:phone],
+      phone_number: params[:phone],
       address: params[:address],
       verified: params[:verified]
     )
+
+    host.to_json
   end
  
   # patch '/homes/:id' do
