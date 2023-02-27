@@ -33,14 +33,21 @@ class ApplicationController < Sinatra::Base
     host.to_json
   end
  
-  # patch '/homes/:id' do
-  #   home= Home.find(params[:id])
-  #   # home.update(
-  #   #   body: params[:body]
-  #   # )
-  #   home.to_json
-  # end
+  patch '/homes/:id' do
+    home= Home.find(params[:id])
+    home.update(
+      title: params[:title],
+      description: params[:description],
+      price: params[:price]
+    )
+    home.to_json
+  end
 
+  delete "hosts/:id" do 
+    host= Host.find(params[:id])
+    host.destroy
+  end 
+  
   delete "/homes/:id" do
      home = Home.find(params[:id])
      home.destroy
