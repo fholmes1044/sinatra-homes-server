@@ -43,7 +43,7 @@ class ApplicationController < Sinatra::Base
     home.to_json
   end
 
-  delete "hosts/:id" do 
+  delete "/hosts/:id" do 
     host= Host.find(params[:id])
     host.destroy
   end 
