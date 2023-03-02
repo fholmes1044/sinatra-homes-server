@@ -25,12 +25,12 @@ class ApplicationController < Sinatra::Base
     host = Host.create(
       full_name: params[:full_name],
       email: params[:email],
-      phone_number: params[:phone],
+      phone_number: params[:phone_number],
       address: params[:address],
       verified: params[:verified]
     )
 
-    host.to_json
+    host.to_json(include: :homes)
   end
  
   patch '/homes/:id' do
